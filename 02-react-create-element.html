@@ -1,0 +1,22 @@
+<body>
+    <div id="root"></div>
+    <script src='https://unpkg.com/react@16.7.0/umd/react.production.min.js'></script>
+    <script src='http://unpkg.com/react-dom@16.7.0/umd/react-dom.production.min.js'></script>
+    <script type="text/javascript">
+        const rootElement = document.getElementById("root")
+        const element = React.createElement('div',{
+            // either use children property or put in third parameter after object.
+            // can add more children as addiutional parameters or as array in children property
+            //children can  be additional react create element
+            // children:'Hello World',
+            className: 'container'
+        }, 'Hello World')
+        ReactDOM.render(element, rootElement)
+        // const element=document.createElement('div')
+        // // element.innerHTML= '<h1>Hello World</h1>'
+        // element.textContent = 'Hello World'
+        // element.className = 'container'
+        // rootElement.appendChild(element)
+        
+    </script>
+</body>
