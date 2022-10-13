@@ -1,0 +1,21 @@
+<body>
+  <div id="root"></div>
+  <script src='https://unpkg.com/react@16.7.0/umd/react.development.js'></script>
+  <script src='http://unpkg.com/react-dom@16.7.0/umd/react-dom.development.js'></script>
+  <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+<!-- babel compiles jsx-->
+  <script type="text/babel">
+    const Message = (props) => <div className="message">{props.msg}</div>
+    const element = (
+      // to use message as a tag, need to capitalize
+      <div className="container">
+        <Message msg='JSX Cosmic World'/>
+        {Message({msg: 'JS Hello World'})}
+        {Message({msg: 'Buhbye World'})}
+
+      </div>
+    )
+
+    ReactDOM.render(element, document.getElementById("root"))        
+  </script>
+</body>

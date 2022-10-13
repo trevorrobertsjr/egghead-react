@@ -1,0 +1,36 @@
+<body>
+  <div id="root"></div>
+  <script src='https://unpkg.com/react@16.7.0/umd/react.development.js'></script>
+  <script src='http://unpkg.com/react-dom@16.7.0/umd/react-dom.development.js'></script>
+  <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+  <script src="https://unpkg.com/prop-types@15.6.1/prop-types.js"></script>
+
+<!-- babel compiles jsx-->
+  <script type="text/babel">
+    const rootElement=document.getElementById('root')
+    function SayHello({firstName, lastName}) {
+      return(
+        <div>
+          Hello {firstName} {lastName}!
+        </div>
+      )
+    }
+    // const PropTypes   = {
+    //   string(props, propName, componentName) {
+    //     if (typeof props[propName !== 'string']) {
+    //       return new Error(
+    //         `Hey, the component ${componentName} needs the prop ${propName} to be`
+    //       )
+    //     }
+    //   }
+    // }
+    SayHello.propTypes = {
+      firstName: PropTypes.string.isRequired,
+      lastName: PropTypes.string.isRequired
+    }
+    const Message = (props) => <div className="message">{props.msg}</div>
+    const element = <SayHello firstName={true} />
+
+    ReactDOM.render(element, document.getElementById("root"))        
+  </script>
+</body>
