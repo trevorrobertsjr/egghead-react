@@ -25,10 +25,32 @@
     }
   </style>
   <script type="text/babel">
+    function Box({className, style, size, ...rest}) {
+      const sizeClassName = size ? `box--${size}`: ''
+      console.log(sizeClassName)
+      return <div 
+              className={`box ${className} ${sizeClassName}`}
+              style={{fontStyle: 'italic', ...style}}
+               {...rest}
+             />
+    }
     const element = (
       <div>
-        <div className="box box--small" 
-        style={{fontStyle: 'italic', backgroundColor: 'lightblue'}}>small lightblue box</div>
+        <Box size="small" 
+        style={{backgroundColor: 'lightblue'}}
+        >
+          small lightblue box
+        </Box>
+        <Box size="medium" 
+        style={{backgroundColor: 'pink'}}
+        >
+          medium lightblue box
+        </Box>
+        <Box size="large" 
+        style={{backgroundColor: 'orange'}}
+        >
+          large lightblue box
+        </Box>
       </div>
     )
 
