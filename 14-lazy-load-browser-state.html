@@ -1,0 +1,34 @@
+<body>
+  <div id="root"></div>
+  <script src='https://unpkg.com/react@16.12.0/umd/react.development.js'></script>
+  <script src='http://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js'></script>
+  <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+  <script src="https://unpkg.com/prop-types@15.6.1/prop-types.js"></script>
+  <script type="text/babel">
+
+    // use AT LEAST react 16.12. I got React.useState NOT a function with 16.7
+    // htmlFor is used in JSX instead of for to
+    // associate a label to an input
+    function Greeting() {
+      // UPDATE to query local storage first and return '' if empty
+      const [name, setName] = React.useState(window.localStorage.getItem('name') ||'')
+      // persist in-memory state to browser local storage
+      React.useEffect(()=> {
+        window.localStorage.setItem('name', name)
+      })
+      const handleChange = event => setName(event.target.value)
+      // UPDATE input tag initial value to reflect whatever the name value is
+      return (
+        <div>
+          <form>
+            <label htmlFor="name">Name: </label>
+            <input value={name} onChange={handleChange} id="name"/>
+          </form>
+            {name ? <strong>Hello {name}</strong>:'Please type your name'}
+        </div>
+      )
+    }
+    
+    ReactDOM.render(<Greeting />, document.getElementById("root"))
+  </script>
+</body>
